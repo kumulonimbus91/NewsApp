@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">NewsApp</string>
+    <string name="log_in">Log In</string>
+    <string name="log_in2">LOG IN</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_up2">SIGN UP</string>
+    <string name="email">email</string>
+    <string name="name">name</string>
+
+    <string name="sign_in">SIGN IN</string>
+    <string name="sign_in_description_text">Enter your email and password to log in.</string>
+    <string name="enter_your_email_name_and_password_to_sign_up">Enter your name, email and password to sign up</string>
+    <string name="please_wait">Please Wait&#8230;</string>
+    <string name="please_click_back_again_to_exit">Please click back again to exit.</string>
+    <string name="search">Search</string>
+    <string name="keyword">keyword</string>
+    <string name="sign_out">Sign Out</string>
+    
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="saved_news">Saved News</string>
+    <string name="home">Home</string>
+    <string name="entertainment">Entertainment</string>
+
 </resources>

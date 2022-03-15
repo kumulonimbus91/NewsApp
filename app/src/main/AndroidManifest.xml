@@ -9,16 +9,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NewsApp">
-        <activity android:name=".UI.activities.LogInActivity"></activity>
-        <activity android:name=".UI.activities.IntroScreen" />
-        <activity android:name=".UI.activities.SplashScreen">
+        <activity android:name=".view.activities.BaseActivity"></activity>
+        <activity
+            android:name=".view.activities.SignUpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activities.LogInActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activities.IntroScreen"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activities.SplashScreen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UI.activities.MainActivity" />
+        <activity android:name=".view.activities.MainActivity" />
     </application>
 
 </manifest>
