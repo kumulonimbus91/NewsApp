@@ -16,6 +16,8 @@ class IntroScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         mBinding = ActivityIntroScreenBinding.inflate(layoutInflater)
 
+        supportActionBar?.hide()
+
         mBinding.btnLogIn.setOnClickListener {
             val intent = Intent(this, LogInActivity::class.java)
 

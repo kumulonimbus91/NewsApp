@@ -17,14 +17,22 @@ class LogInActivity : BaseActivity() {
     private lateinit var mBinding: ActivityLogInBinding
 
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = Firebase.auth
+
+        supportActionBar?.hide()
 
         mBinding = ActivityLogInBinding.inflate(layoutInflater)
 
 
         setContentView(mBinding.root)
+
+        mBinding.backbutton.setOnClickListener {
+            onBackPressed()
+        }
 
 
 

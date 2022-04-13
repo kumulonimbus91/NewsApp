@@ -7,12 +7,16 @@ import android.os.Handler
 import com.nenad.newsapp.R
 import com.nenad.newsapp.databinding.ActivitySplashScreenBinding
 import com.nenad.newsapp.firebase.FirestoreClass
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SplashScreen : AppCompatActivity() {
     private lateinit var mBinding: ActivitySplashScreenBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        supportActionBar?.hide()
 
         mBinding = ActivitySplashScreenBinding.inflate(layoutInflater)
 

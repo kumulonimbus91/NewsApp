@@ -2,16 +2,20 @@ package com.nenad.newsapp.view.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.nenad.newsapp.R
 import com.nenad.newsapp.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var mBinding: ActivityMainBinding
-    private lateinit var navHostFragment: NavHostFragment
+    private lateinit var mNavController: NavController
 
 
 
@@ -21,9 +25,16 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        navHostFragment =
+       val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val mNavController = navHostFragment.findNavController()
+        mNavController = navHostFragment.findNavController()
+
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.homeFragment,
+                R.id.savedNewsFragment
+            )
+        )
 
 
 
@@ -36,5 +47,8 @@ class MainActivity : AppCompatActivity() {
 
 
         setContentView(mBinding.root)
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        return mNavController.navigateUp() || super.onSupportNavigateUp()
     }
 }

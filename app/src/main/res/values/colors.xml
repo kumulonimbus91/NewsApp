@@ -16,4 +16,18 @@
     <color name="secondary_text_color">#7A8089</color>
 
     <color name="snackbar_error_color">#F72400</color>
+
+    <color name="btnColor">#E0B547</color>
+
+    <color name="background2">#DFD1D1</color>
+
+    <color name="searchBtn">#5E5C21</color>
+
+    <color name="editTextBack">#F2E6E6</color>
+
+    <color name="textbackground1">#F3E3E3</color>
+
+    <color name="textbackground2">#E7E0E0</color>
+
+
 </resources>

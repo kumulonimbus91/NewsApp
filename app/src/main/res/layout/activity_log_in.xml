@@ -1,47 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout >
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/blue_background"
+        android:background="@drawable/android_large___3"
         android:orientation="vertical"
         tools:context="com.nenad.newsapp.view.activities.LogInActivity">
 
         <androidx.appcompat.widget.Toolbar
+            app:layout_constraintTop_toTopOf="parent"
             android:id="@+id/toolbar_sign_in_activity"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+           
 
                 <ImageView
+                    android:id="@+id/backbutton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_gravity="start"
                     android:src="@drawable/ic_baseline_arrow_back_24"/>
-
-                <TextView
-                    android:id="@+id/tv_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:layout_marginStart="20dp"
-                    android:text="@string/log_in2"
-                    android:textColor="@color/white"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-
-
-
-            </LinearLayout>
-
-
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -56,24 +37,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/sign_in_description_text"
-                android:textColor="@color/secondary_text_color"
-                android:textSize="18sp" />
+                android:layout_marginTop="40dp"
+                android:text="Log In"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/black"
+                android:textSize="38sp" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="60dp"
-                android:layout_marginEnd="25dp"
-                android:background="@color/buttonSignUp"
-                android:backgroundTint="@color/buttonSignUp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="90dp"
+                android:layout_gravity="center"
+                app:cardBackgroundColor="@android:color/transparent"
                 android:elevation="10dp"
-                app:cardCornerRadius="10dp">
+                 >
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:padding="16dp">
 
@@ -81,7 +62,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        app:boxCornerRadiusTopEnd="8dp"
+                        app:boxCornerRadiusTopEnd="45dp"
+                        app:boxCornerRadiusBottomEnd="45dp"
+                        app:boxCornerRadiusBottomStart="45dp"
+                        app:boxCornerRadiusTopStart="45dp"
+                        android:layout_marginTop="45dp"
                         android:layout_marginEnd="16dp">
 
                         <androidx.appcompat.widget.AppCompatEditText
@@ -97,8 +82,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="20dp"
-                        app:boxCornerRadiusTopEnd="8dp"
+                        android:layout_marginTop="50dp"
+                        app:boxCornerRadiusTopEnd="45dp"
+                        app:boxCornerRadiusBottomEnd="45dp"
+                        app:boxCornerRadiusBottomStart="45dp"
+                        app:boxCornerRadiusTopStart="45dp"
                         android:layout_marginEnd="16dp">
 
                         <androidx.appcompat.widget.AppCompatEditText
@@ -114,23 +102,50 @@
                         android:id="@+id/btn_sign_in"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
+                        android:layout_gravity="bottom"
+                        android:layout_marginTop="180dp"
                         android:layout_marginStart="20dp"
-                        android:layout_marginTop="30dp"
                         android:layout_marginEnd="20dp"
                         android:foreground="?attr/selectableItemBackground"
                         android:gravity="center"
                         android:paddingTop="8dp"
                         android:paddingBottom="8dp"
-                        app:cornerRadius="8dp"
-                        android:backgroundTint="@color/buttonLogInColor"
+                        app:cornerRadius="45dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:backgroundTint="@color/btnColor"
                         android:text="@string/log_in"
                         android:textColor="@android:color/white"
                         android:textSize="18sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Don't have an account? Sign Up"
+                            android:textColor="@color/white"
+
+                            />
+
+                        <TextView
+                            android:id="@+id/SignUpHere"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="HERE"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </layout>
