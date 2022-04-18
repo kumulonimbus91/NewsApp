@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/searchBtn"
-        android:tint="@color/white"
+        app:tint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         android:src="@drawable/ic_baseline_share_24"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
@@ -35,6 +35,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_baseline_save_24"
         android:backgroundTint="@color/searchBtn"
+        app:tint="@color/white"
         app:layout_constraintEnd_toStartOf="@id/sharebtn"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
         android:layout_margin="15dp"/>
