@@ -24,13 +24,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/searchBtn"
+        android:tint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/ic_baseline_share_24"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
         android:layout_margin="15dp"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_save_24"
         android:backgroundTint="@color/searchBtn"
         app:layout_constraintEnd_toStartOf="@id/sharebtn"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
@@ -53,6 +56,7 @@
                 android:layout_height="wrap_content"
                 tools:text="@string/exampleHeadline"
                 android:textSize="25sp"
+                android:layout_margin="10dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:layout_gravity="center"/>
 
@@ -60,6 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
+                android:layout_margin="10dp"
                 android:fontFamily="@font/poppins_semibold"
                 tools:text="@string/exampleNews"/>
 
