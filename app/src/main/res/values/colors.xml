@@ -29,5 +29,7 @@
 
     <color name="textbackground2">#E7E0E0</color>
 
+    <color name="textColor">#2C2B2B</color>
+
 
 </resources>
