@@ -1,23 +1,20 @@
 package com.nenad.newsapp.view.activities
 
+import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
 import android.widget.Toast
-import androidx.annotation.Nullable
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.customview.widget.Openable
-import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.navigation.NavigationView
+import androidx.preference.PreferenceManager
 import com.nenad.newsapp.R
 import com.nenad.newsapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -76,7 +73,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(mBinding.root)
     }
     override fun onSupportNavigateUp(): Boolean {
-        return NavigationUI.navigateUp(mNavController, appBarConfiguration )
+        return NavigationUI.navigateUp(mNavController, appBarConfiguration)
 
         //
     }
@@ -85,7 +82,7 @@ class MainActivity : AppCompatActivity() {
         mBinding.navView.setNavigationItemSelectedListener {
             when(it.itemId) {
                 R.id.business -> {
-                    Toast.makeText(this, "Business category selected", Toast.LENGTH_SHORT).show()
+                    saveSp("category", "business")
 
                     if (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
                         mBinding.drawerLayout.closeDrawer(GravityCompat.START)
@@ -94,7 +91,7 @@ class MainActivity : AppCompatActivity() {
                     return@setNavigationItemSelectedListener true
                 }
                 R.id.technology -> {
-                    Toast.makeText(this, "Tech category selected", Toast.LENGTH_SHORT).show()
+                    saveSp("category", "technology")
                     if (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
                         mBinding.drawerLayout.closeDrawer(GravityCompat.START)
                     }
@@ -102,7 +99,7 @@ class MainActivity : AppCompatActivity() {
                     return@setNavigationItemSelectedListener true
                 }
                 R.id.science -> {
-                    Toast.makeText(this, "Science category selected", Toast.LENGTH_SHORT).show()
+                    saveSp("category", "science")
                     if (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
                         mBinding.drawerLayout.closeDrawer(GravityCompat.START)
                     }
@@ -111,7 +108,7 @@ class MainActivity : AppCompatActivity() {
 
                 }
                 R.id.health -> {
-                    Toast.makeText(this, "Health category selected", Toast.LENGTH_SHORT).show()
+                    saveSp("category", "health")
                     if (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
                         mBinding.drawerLayout.closeDrawer(GravityCompat.START)
                     }
@@ -120,7 +117,7 @@ class MainActivity : AppCompatActivity() {
 
                 }
                 R.id.entertainment -> {
-                    Toast.makeText(this, "Health category selected", Toast.LENGTH_SHORT).show()
+                    saveSp("category", "entertainment")
                     if (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
                         mBinding.drawerLayout.closeDrawer(GravityCompat.START)
                     }
@@ -128,7 +125,7 @@ class MainActivity : AppCompatActivity() {
                     return@setNavigationItemSelectedListener true
                 }
                 R.id.sport -> {
-                    Toast.makeText(this, "Health category selected", Toast.LENGTH_SHORT).show()
+                    saveSp("category", "sports")
                     if (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
                         mBinding.drawerLayout.closeDrawer(GravityCompat.START)
                     }
@@ -145,6 +142,12 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    private fun saveSp(key: String, value: String) {
+        PreferenceManager.getDefaultSharedPreferences(applicationContext)
+            .edit()
+            .putString(key, value).apply()
     }
 }
 
