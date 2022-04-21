@@ -31,5 +31,9 @@
 
     <color name="textColor">#2C2B2B</color>
 
+    <color name="spinners_color">#676363</color>
+
+    <color name="spinners_color_elements">#3C3A3A</color>
+
 
 </resources>

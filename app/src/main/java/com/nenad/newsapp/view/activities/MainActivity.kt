@@ -1,6 +1,7 @@
 package com.nenad.newsapp.view.activities
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -27,21 +28,19 @@ class MainActivity : AppCompatActivity() {
     private lateinit var actionBar: ActionBar
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = ActivityMainBinding.inflate(layoutInflater)
 
-      //  supportActionBar?.hide()
-      actionBar = supportActionBar!!
+        //  supportActionBar?.hide()
+        actionBar = supportActionBar!!
 
         val colorDrawable: ColorDrawable = ColorDrawable(Color.parseColor("#E7E0E0"))
 
         actionBar.setBackgroundDrawable(colorDrawable)
 
 
-
-       val navHostFragment =
+        val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         mNavController = navHostFragment.findNavController()
 
@@ -72,6 +71,7 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(mBinding.root)
     }
+
     override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(mNavController, appBarConfiguration)
 
@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun drawerItemSelectedListener() {
         mBinding.navView.setNavigationItemSelectedListener {
-            when(it.itemId) {
+            when (it.itemId) {
                 R.id.business -> {
                     saveSp("category", "business")
 
@@ -132,6 +132,15 @@ class MainActivity : AppCompatActivity() {
 
                     return@setNavigationItemSelectedListener true
                 }
+                R.id.settings -> {
+
+                    val intent = Intent(this@MainActivity, SettingsActivity::class.java)
+                    startActivity(intent)
+                    finish()
+
+
+                    return@setNavigationItemSelectedListener true
+                }
 
 
                 else -> {
@@ -145,7 +154,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun saveSp(key: String, value: String) {
-        PreferenceManager.getDefaultSharedPreferences(applicationContext)
+        PreferenceManager.getDefaultSharedPreferences(this)
             .edit()
             .putString(key, value).apply()
     }
