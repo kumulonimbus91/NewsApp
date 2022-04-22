@@ -18,6 +18,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.preference.PreferenceManager
 import com.nenad.newsapp.R
 import com.nenad.newsapp.databinding.ActivityMainBinding
+import com.nenad.newsapp.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -83,6 +84,8 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.business -> {
                     saveSp("category", "business")
+
+
 
                     if (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
                         mBinding.drawerLayout.closeDrawer(GravityCompat.START)

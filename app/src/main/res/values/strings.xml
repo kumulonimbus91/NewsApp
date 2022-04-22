@@ -25,7 +25,7 @@
     <string name="business">Business</string>
     <string name="technology">Technology</string>
     <string name="science">Science</string>
-    <string name="sports">Sports</string>
+
 
     <string name="exampleNews">"Boris Johnson and Rishi Sunak have rejected calls to resign, despite being fined by police for breaking lockdown rules in Downing Street in June 2020.
 
@@ -39,5 +39,6 @@ Mr Johnson said he felt 'an even greater sense of obligation to deliver', while 
     <string name="exampleHeadline">Boris Johnson and Rishi Sunak reject calls to resign over lockdown fines</string>
     <string name="select_category">Select category</string>
     <string name="clear_all">Clear All</string>
+    <string name="sports">Sports</string>
 
 </resources>
