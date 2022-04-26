@@ -7,7 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="colorAccent">#0C90F1</color>
+    <color name="colorAccent">#23230C</color>
 
     <color name="buttonLogInColor">#FFB74D</color>
     <color name="buttonSignUp">#81C784</color>
@@ -34,6 +34,8 @@
     <color name="spinners_color">#676363</color>
 
     <color name="spinners_color_elements">#3C3A3A</color>
+
+    <color name="button_clicked">#23230C</color>
 
 
 </resources>
