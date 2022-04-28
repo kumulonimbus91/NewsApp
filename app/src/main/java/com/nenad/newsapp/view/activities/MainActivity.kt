@@ -1,6 +1,8 @@
 package com.nenad.newsapp.view.activities
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -15,8 +17,10 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import androidx.preference.PreferenceManager
+import com.google.firebase.auth.FirebaseAuth
 import com.nenad.newsapp.R
 import com.nenad.newsapp.databinding.ActivityMainBinding
+import com.nenad.newsapp.utils.Constants
 import com.nenad.newsapp.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -28,6 +32,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var actionBar: ActionBar
 
     lateinit var viewModel: MainViewModel
+
+    // A global variable for SharedPreferences
+    private lateinit var mSharedPreferences: SharedPreferences
 
 
 
@@ -64,6 +71,9 @@ class MainActivity : AppCompatActivity() {
         )
 
         appBarConfiguration = AppBarConfiguration(mNavController.graph, mBinding.drawerLayout)
+
+        mSharedPreferences =
+            this.getSharedPreferences(Constants.PREFS_NAME, Context.MODE_PRIVATE)
 
 
 
@@ -104,6 +114,16 @@ class MainActivity : AppCompatActivity() {
                     return@setNavigationItemSelectedListener true
                 }
                 R.id.nav_sign_out -> {
+
+                    FirebaseAuth.getInstance().signOut()
+
+                    mSharedPreferences.edit().clear().apply()
+
+                    val intent = Intent(this@MainActivity, IntroScreen::class.java)
+                    startActivity(intent)
+                    finish()
+
+
 
 
 
