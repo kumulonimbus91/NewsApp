@@ -3,9 +3,12 @@ package com.nenad.newsapp.view.activities
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.pm.ApplicationInfo
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
@@ -85,6 +88,13 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(mBinding.navView, mNavController)
 
         drawerItemSelectedListener()
+
+        val ai: ApplicationInfo = applicationContext.packageManager
+            .getApplicationInfo(applicationContext.packageName, PackageManager.GET_META_DATA)
+        val value = ai.metaData["keyValue"]
+
+        val key = value.toString()
+        Toast.makeText(applicationContext,key, Toast.LENGTH_LONG).show()
 
 
 
