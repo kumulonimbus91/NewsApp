@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="viewModel"
+            type="com.nenad.newsapp.viewmodels.MainViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background2"
+        tools:context=".view.activities.MainActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Top Headlines"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/recycler_view"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scrollbars="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/guideline4"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guideline5"
+            tools:listitem="@layout/listitem" />
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/guideline4"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guideline5"/>
+
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recycler_view" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guideline4"
+            app:layout_constraintBottom_toTopOf="@+id/rv2">
+
+
+            <HorizontalScrollView
+                android:id="@+id/categories_rv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:layout_gravity="start"
+                android:scrollbars="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:descendantFocusability="blocksDescendants"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/sports_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        app:cornerRadius="15dp"
+                        style="@style/ButtonStyle"
+                        android:elevation="10dp"
+                        android:background="@drawable/button_default"
+                        android:layout_marginStart="5dp"
+                        android:maxLines="1"
+                        android:textColor="@color/white"
+                        android:text="@string/sports"/>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/business_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:elevation="10dp"
+                        style="@style/ButtonStyle"
+                        android:maxLines="1"
+                        android:textColor="@color/white"
+                        android:layout_marginStart="5dp"
+                        android:text="Business"/>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/entertainment_btn"
+                        android:layout_width="wrap_content"
+                        style="@style/ButtonStyle"
+                        android:textColor="@color/white"
+                        android:elevation="10dp"
+                        android:padding="10dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="5dp"
+                        android:maxLines="1"
+                        android:text="Entertainment"/>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/health_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        style="@style/ButtonStyle"
+                        android:textColor="@color/white"
+                        android:padding="10dp"
+                        android:elevation="10dp"
+                        android:layout_marginStart="5dp"
+                        android:maxLines="1"
+                        android:text="Health"/>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/science_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        style="@style/ButtonStyle"
+                        android:padding="10dp"
+                        android:elevation="10dp"
+                        android:textColor="@color/white"
+                        android:layout_marginStart="5dp"
+                        android:maxLines="1"
+                        android:text="Science"/>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/tech_btn"
+                        android:layout_width="wrap_content"
+                        android:padding="10dp"
+                        android:layout_height="40dp"
+                        style="@style/ButtonStyle"
+                        android:textColor="@color/white"
+                        android:elevation="10dp"
+                        android:layout_marginStart="5dp"
+                        android:maxLines="1"
+                        android:text="Technology"/>
+
+
+
+                </LinearLayout>
+
+
+
+
+
+
+            </HorizontalScrollView>
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:scrollbars="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/guideline7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline6"
+            tools:listitem="@layout/listitemcategory" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.65" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.73" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.99" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

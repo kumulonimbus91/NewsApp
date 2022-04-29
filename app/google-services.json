@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "419597750659",
+    "project_id": "newsapp-f46f7",
+    "storage_bucket": "newsapp-f46f7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:419597750659:android:e3467c589502b7be7626b6",
+        "android_client_info": {
+          "package_name": "com.nenad.newsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "419597750659-ctrc4hsi736hsc8og9hp405oboo67gba.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5MLD6aJ8ZgHTohRwELEGkbPiSfjqNZI0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "419597750659-ctrc4hsi736hsc8og9hp405oboo67gba.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
