@@ -13,7 +13,7 @@ import com.nenad.newsapp.R
 import com.nenad.newsapp.databinding.DialogProgressBinding
 
 open class BaseActivity : AppCompatActivity() {
-    private var doubleBackToExitPressedOnce = false
+
 
     /**
      * This is a progress dialog instance which we will initialize later on.

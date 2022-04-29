@@ -89,12 +89,7 @@ class MainActivity : AppCompatActivity() {
 
         drawerItemSelectedListener()
 
-        val ai: ApplicationInfo = applicationContext.packageManager
-            .getApplicationInfo(applicationContext.packageName, PackageManager.GET_META_DATA)
-        val value = ai.metaData["keyValue"]
 
-        val key = value.toString()
-        Toast.makeText(applicationContext,key, Toast.LENGTH_LONG).show()
 
 
 
@@ -114,15 +109,7 @@ class MainActivity : AppCompatActivity() {
     private fun drawerItemSelectedListener() {
         mBinding.navView.setNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.settings -> {
 
-                    val intent = Intent(this@MainActivity, SettingsActivity::class.java)
-                    startActivity(intent)
-                    finish()
-
-
-                    return@setNavigationItemSelectedListener true
-                }
                 R.id.nav_sign_out -> {
 
                     FirebaseAuth.getInstance().signOut()

@@ -33,6 +33,12 @@ class LogInActivity : BaseActivity() {
         mBinding.backbutton.setOnClickListener {
             onBackPressed()
         }
+        mBinding.btnLogIn.setOnClickListener {
+            signInRegisteredUser()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
 
 
@@ -70,7 +76,7 @@ class LogInActivity : BaseActivity() {
 
         if (validateForm(email, password)) {
             // Show the progress dialog.
-            showProgressDialog(resources.getString(R.string.please_wait))
+            //showProgressDialog(resources.getString(R.string.please_wait))
 
             // Sign-In using FirebaseAuth
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
@@ -93,7 +99,7 @@ class LogInActivity : BaseActivity() {
      */
     fun signInSuccess(user: User) {
 
-        hideProgressDialog()
+       // hideProgressDialog()
 
         startActivity(Intent(this@LogInActivity, MainActivity::class.java))
         this.finish()

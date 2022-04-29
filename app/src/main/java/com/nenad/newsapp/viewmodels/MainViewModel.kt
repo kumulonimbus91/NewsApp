@@ -6,7 +6,6 @@ import android.content.SharedPreferences
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.widget.Button
-import android.widget.Toast
 import androidx.lifecycle.*
 import com.nenad.newsapp.database.model.apiresponse.Article
 import com.nenad.newsapp.database.model.apiresponse.Result
@@ -14,7 +13,6 @@ import com.nenad.newsapp.database.network.Response
 import com.nenad.newsapp.database.repository.Repository
 import com.nenad.newsapp.utils.Constants
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -22,7 +20,7 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(
     private val repository: Repository,
     application: Application
-) : AndroidViewModel(application){
+) : AndroidViewModel(application) {
 
     //remote
 
@@ -40,19 +38,8 @@ class MainViewModel @Inject constructor(
     var searchNewsPage = 1
 
 
-
-    val shared: SharedPreferences? = androidx.preference.PreferenceManager.getDefaultSharedPreferences(getApplication())
-
-
-
-
-    val country = shared?.getString("country", "us")
-
-
-
-
     init {
-        getHeadlinesInUI(country!!)
+        getHeadlinesInUI(Constants.country)
         getSportNews()
     }
 
@@ -85,7 +72,7 @@ class MainViewModel @Inject constructor(
 
          result.postValue(Response.Loading())
 
-         val response = repository.getHeadlinesRepo(countryCode, page)
+         val response = repository.getHeadlinesRepo()
 
          result.postValue(handleHeadlinesResponse(response))
 
@@ -93,12 +80,7 @@ class MainViewModel @Inject constructor(
     }
 
 
-    fun getNewsByCategory(category: String) = viewModelScope.launch {
-        resultCategory.postValue(Response.Loading())
-        val responseCategory = repository.getNewsByCategory(category)
-        resultCategory.postValue(handleHeadlinesResponse(responseCategory))
 
-    }
 
     fun getSportNews() = viewModelScope.launch {
         resultCategory.postValue(Response.Loading())

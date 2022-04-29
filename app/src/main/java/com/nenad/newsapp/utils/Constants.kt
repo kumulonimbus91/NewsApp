@@ -1,12 +1,12 @@
 package com.nenad.newsapp.utils
 
-import com.nenad.newsapp.BuildConfig
+
 
 object Constants {
 
     const val USERS: String = "users"
 
-    const val API_KEY: String = "429ff4be92fd437daafdcaad5e2d6bd6"
+    const val API_KEY_N: String = "429ff4be92fd437daafdcaad5e2d6bd6"
 
     const val END_POINT: String = "v2/top-headlines"
 

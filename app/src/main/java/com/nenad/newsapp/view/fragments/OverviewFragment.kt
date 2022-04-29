@@ -56,13 +56,14 @@ class OverviewFragment : Fragment() {
 
         mBinding.textnews.movementMethod
 
-//        mBinding.viewModel = viewModel
+
 
 
 
         mBinding.lifecycleOwner = this
 
         mBinding.favoriteBtn.setOnClickListener {
+            Toast.makeText(requireContext(), "Article saved", Toast.LENGTH_SHORT).show()
             viewModel.insertArticle(args.article)
         }
 
@@ -74,12 +75,7 @@ class OverviewFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//       mBinding.favoriteBtn.setOnClickListener {
-//           lifecycleScope.launch {
-//               viewModel.insertArticle(args.article)
-//           }
-//           Toast.makeText(requireContext(),"Article saved", Toast.LENGTH_SHORT).show()
-//       }
+
 
 
 

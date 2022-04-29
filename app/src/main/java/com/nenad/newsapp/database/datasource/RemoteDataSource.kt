@@ -9,9 +9,6 @@ class RemoteDataSource @Inject constructor() {
     suspend fun getHeadlines(): Response<Result> {
         return RetrofitInstance.api.getHeadLines()
     }
-    suspend fun getNewsByCategory(): Response<Result> {
-        return RetrofitInstance.api.getNewsByCategory("general")
-    }
 
     suspend fun getSportNews(): Response<Result> {
         return RetrofitInstance.api.getSportsNews("sports")
