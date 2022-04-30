@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
         //  supportActionBar?.hide()
         actionBar = supportActionBar!!
 
-        val colorDrawable: ColorDrawable = ColorDrawable(Color.parseColor("#E7E0E0"))
+        val colorDrawable: ColorDrawable = ColorDrawable(Color.parseColor("#5E5C21"))
 
         actionBar.setBackgroundDrawable(colorDrawable)
 

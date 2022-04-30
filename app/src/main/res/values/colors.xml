@@ -37,5 +37,7 @@
 
     <color name="button_clicked">#23230C</color>
 
+    <color name="color">#E7E0E0</color>
+
 
 </resources>

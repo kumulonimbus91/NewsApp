@@ -35,7 +35,10 @@ class LogInActivity : BaseActivity() {
         }
         mBinding.btnLogIn.setOnClickListener {
             signInRegisteredUser()
-            val intent = Intent(this, MainActivity::class.java)
+
+        }
+        mBinding.SignUpHere.setOnClickListener {
+            val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
             finish()
         }

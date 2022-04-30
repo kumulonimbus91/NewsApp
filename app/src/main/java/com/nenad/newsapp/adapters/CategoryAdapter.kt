@@ -29,7 +29,7 @@ class CategoryAdapter(private val fragment: HomeFragment) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
-//        return ViewHolder (LayoutInflater.from(parent.context).inflate(R.layout.listitem, parent, false))
+
 
 
         return ViewHolder.from(parent)
@@ -93,7 +93,5 @@ class CategoryAdapter(private val fragment: HomeFragment) :
 
     }
 
-    class OnClickListener(val clickListener: (article: Article) -> Unit) {
-        fun onClick(article: Article) = clickListener(article)
-    }
+
 }
