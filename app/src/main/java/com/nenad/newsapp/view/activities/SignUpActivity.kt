@@ -20,17 +20,25 @@ class SignUpActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         mBinding = ActivitySignUpBinding.inflate(layoutInflater)
 
+        supportActionBar?.hide()
+
 
 
 
         mBinding.btnregister.setOnClickListener {
 
             try {
-                registerUser()
 
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                finish()
+                if (registerUser()) {
+                    registerUser()
+
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    Toast.makeText(this,"Please fill all the fields", Toast.LENGTH_SHORT).show()
+                }
+
             }catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -42,6 +50,12 @@ class SignUpActivity : BaseActivity() {
             onBackPressed()
         }
 
+        mBinding.logInHere.setOnClickListener {
+            val intent = Intent(this, LogInActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         setContentView(mBinding.root)
     }
 
@@ -49,13 +63,14 @@ class SignUpActivity : BaseActivity() {
      * A function to register a user to our app using the Firebase.
      * For more details visit: https://firebase.google.com/docs/auth/android/custom-auth
      */
-    private fun registerUser() {
+    private fun registerUser(): Boolean {
         // Here we get the text from editText and trim the space
         val name: String = mBinding.etName.text.toString().trim { it <= ' ' }
         val email: String = mBinding.etEmail.text.toString().trim { it <= ' ' }
         val password: String = mBinding.etPassword.text.toString().trim { it <= ' ' }
+        val passwordConfirmed: String = mBinding.etPasswordconfirm.text.toString().trim { it <= ' ' }
 
-        if (validateForm(name, email, password)) {
+        if (validateForm(name, email, password, passwordConfirmed)) {
             // Show the progress dialog.
             showProgressDialog(resources.getString(R.string.please_wait))
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
@@ -84,6 +99,9 @@ class SignUpActivity : BaseActivity() {
                             ).show()
                         }
                     })
+            return true
+        } else {
+            return false
         }
     }
 
@@ -121,7 +139,7 @@ class SignUpActivity : BaseActivity() {
     /**
      * A function to validate the entries of a new user.
      */
-    private fun validateForm(name: String, email: String, password: String): Boolean {
+    private fun validateForm(name: String, email: String, password: String, passwordConfirmed: String): Boolean {
         return when {
             TextUtils.isEmpty(name) -> {
                 showErrorSnackBar("Please enter name.")
@@ -135,9 +153,22 @@ class SignUpActivity : BaseActivity() {
                 showErrorSnackBar("Please enter password.")
                 false
             }
+            TextUtils.isEmpty(passwordConfirmed) -> {
+                showErrorSnackBar("Please confirm your password")
+                false
+            }
+            !TextUtils.equals(password, passwordConfirmed) -> {
+                showErrorSnackBar("Passwords are not the same")
+                false
+            }
+
+
             else -> {
                 true
             }
+
         }
+
+
     }
 }
