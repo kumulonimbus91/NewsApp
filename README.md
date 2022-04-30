@@ -1,12 +1,12 @@
-News app with NewsApi(https://newsapi.org/) 
+News app with NewsApi(https://newsapi.org/) <br />
 Kotlin,<br />
 Android,<br />
-Firebase auth,
-Coroutines,
-ROOM database,
-REST api,
-MVVM,
-Dagger Hilt,
+Firebase auth, <br />
+Coroutines,<br />
+ROOM database,<br />
+REST api,<br />
+MVVM,<br />
+Dagger Hilt,<br />
 Data binding
 
 
