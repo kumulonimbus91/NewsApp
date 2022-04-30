@@ -1,12 +1,12 @@
 News app with NewsApi(https://newsapi.org/) 
-Kotlin
-Android
-Firebase auth
-Coroutines
-ROOM database
-REST api
-MVVM
-Dagger Hilt
+Kotlin,<br />
+Android,<br />
+Firebase auth,
+Coroutines,
+ROOM database,
+REST api,
+MVVM,
+Dagger Hilt,
 Data binding
 
 
