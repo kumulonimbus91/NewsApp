@@ -7,7 +7,7 @@ ROOM database,<br />
 REST api,<br />
 MVVM,<br />
 Dagger Hilt,<br />
-Data binding
+
 
 
 # NewsApp
